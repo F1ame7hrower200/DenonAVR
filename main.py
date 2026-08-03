@@ -1,23 +1,20 @@
 from tkinter import *
-from selenium import webdriver
 import subprocess
-import webbrowser
+from PIL import Image, ImageTk
 
 def spotify_click():
-    driver = webdriver.Chrome()
-    driver.get('https://open.spotify.com')
-    driver.fullscreen_window()
     print("Opening Spotify...")
-
+    subprocess.Popen(["/usr/bin/chromium", "--kiosk", "https://open.spotify.com"])
 def remoteclick():
-    subprocess.run(["python", 'remote.py'], check=True)
     print("Opening Remote...")
+    subprocess.run(["python", 'remote.py'], check=True)
 
 window = Tk()
-window.geometry("800x480")
+window.geometry("800x480+0+0")
+window.overrideredirect(True)
 window.title("Denon AVR")
 window.configure(background="black")
-window.attributes("-fullscreen", True)
+#window.attributes("-fullscreen", True)
 
 exit_button = Button(window, text="Exit", command=window.destroy)
 exit_button.config(background="black", fg="Red", font=("Sans Serif", 30, "bold"))
@@ -27,12 +24,15 @@ button_frame = Frame(window, background="black")
 button_frame.place(relx=0.5, rely=0.5, anchor=CENTER)
 
 spotify = Button(button_frame, text="Spotify")
-spotify.config(command=spotify_click, background="black",fg="green",font=("Sans Serif", 50, "bold"))
+spotify.config(command=spotify_click, background="black",fg="green",font=("Sans Serif", 30, "bold"))
 spotify.pack(side=LEFT, padx=10)
 
-remote = Button(button_frame,text='Remote')
-remote.config(command=remoteclick, background="black",fg="white", font=("Sans Serif", 50, "bold"))
+remote = Button(button_frame,text='Denon Remote')
+remote.config(command=remoteclick, background="black",fg="blue", font=("Sans Serif", 30, "bold"))
 remote.pack(side=LEFT, padx=10)
+
+ryan = Label(window, text="Ryan bonesmashing", bg="black", fg="white", font=("Sans Serif", 10, "bold"))
+ryan.pack(side=TOP, padx=10)
 
 footer = Label(window, text="Made by Gage and Claude :)", background="black", fg="white", font=("Sans Serif", 10))
 footer.place(relx=0.5, rely=1.0, anchor=S)
