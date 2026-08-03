@@ -69,7 +69,8 @@ def process_queue():
 window = Tk()
 window.title("Denon AVR Setup")
 window.geometry("800x480+0+0")
-window.overrideredirect(True)
+window.overrideredirect(False)
+window.attributes("-fullscreen", True)
 window.configure(background="black")
 
 exit_button = Button(window, text="Exit", command=window.destroy)
