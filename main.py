@@ -1,6 +1,5 @@
 from tkinter import *
 import subprocess
-from PIL import Image, ImageTk
 
 def spotify_click():
     print("Opening Spotify...")

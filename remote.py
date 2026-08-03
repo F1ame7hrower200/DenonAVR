@@ -5,7 +5,6 @@ import threading
 import asyncio
 import httpx
 import subprocess
-from denonavr.const import EcoModes
 
 avr = denonavr.DenonAVR('192.168.0.112')
 
