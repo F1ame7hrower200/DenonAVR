@@ -36,4 +36,6 @@ ryan.pack(side=TOP, padx=10)
 footer = Label(window, text="Made by Gage and Claude :)", background="black", fg="white", font=("Sans Serif", 10))
 footer.place(relx=0.5, rely=1.0, anchor=S)
 
+print('Hello world!')
+
 window.mainloop()
