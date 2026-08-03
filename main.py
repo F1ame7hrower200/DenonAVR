@@ -19,18 +19,22 @@ window.title("Denon AVR")
 window.configure(background="black")
 window.attributes("-fullscreen", True)
 
+exit_button = Button(window, text="Exit", command=window.destroy)
+exit_button.config(background="black", fg="Red", font=("Sans Serif", 30, "bold"))
+exit_button.place(relx=1.0, rely=0.0, anchor=NE)
+
 button_frame = Frame(window, background="black")
 button_frame.place(relx=0.5, rely=0.5, anchor=CENTER)
 
 spotify = Button(button_frame, text="Spotify")
-spotify.config(command=spotify_click, background="black",fg="green",font=("Comic Sans MS", 50, "bold"))
+spotify.config(command=spotify_click, background="black",fg="green",font=("Sans Serif", 50, "bold"))
 spotify.pack(side=LEFT, padx=10)
 
 remote = Button(button_frame,text='Remote')
-remote.config(command=remoteclick, background="black",fg="white", font=("Comic Sans MS", 50, "bold"))
+remote.config(command=remoteclick, background="black",fg="white", font=("Sans Serif", 50, "bold"))
 remote.pack(side=LEFT, padx=10)
 
-footer = Label(window, text="Made by Gage and Claude :)", background="black", fg="white", font=("Arial", 10))
+footer = Label(window, text="Made by Gage and Claude :)", background="black", fg="white", font=("Sans Serif", 10))
 footer.place(relx=0.5, rely=1.0, anchor=S)
 
 window.mainloop()

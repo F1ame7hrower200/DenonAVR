@@ -38,11 +38,11 @@ run_async(poll_status())
 
 def update_buttons(power_state):
     if power_state == "ON":
-        poweron.config(font=("Comic Sans MS",50, 'bold'))
-        poweroff.config(font=("Comic Sans MS",30, 'bold'))
+        poweron.config(font=("Sans Serif",50, 'bold'))
+        poweroff.config(font=("Sans Serif",30, 'bold'))
     else:
-        poweroff.config(font=("Comic Sans MS", 50, 'bold'))
-        poweron.config(font=("Comic Sans MS",30, 'bold'))
+        poweroff.config(font=("Sans Serif", 50, 'bold'))
+        poweron.config(font=("Sans Serif",30, 'bold'))
 
 desired_inputs = ["FATBOY590", "RTX3070", 'Turntable']
 
@@ -79,6 +79,11 @@ window.title("Denon AVR Remote")
 window.configure(background="black")
 window.attributes("-fullscreen", True)
 
+exit_button = Button(window, text="Exit", command=window.destroy)
+exit_button.config(background="black", fg="Red", font=("Sans Serif", 30, "bold"))
+exit_button.place(relx=1.0, rely=0.0, anchor=NE)
+
+
 button_frame = Frame(window, background="black")
 button_frame.pack(pady=(30,10))
 
@@ -94,7 +99,7 @@ selected_input = StringVar(window)
 selected_input.set("Loading...")
 
 input_menu = OptionMenu(window, selected_input, "Loading...")
-input_menu.config(background="black", fg="white", font=("Comic Sans", 20))
+input_menu.config(background="black", fg="white", font=("Sans Serif", 20))
 input_menu.pack(pady=10)
 
 suppress_input_trace = False
@@ -107,12 +112,12 @@ def on_input_selected(*args):
 selected_input.trace_add("write", on_input_selected)
 
 horizontal = Scale(window, from_=0, to=98, orient=HORIZONTAL, length=700, width=40, sliderlength=60)
-horizontal.config(command=on_slider_move,background="black",fg="white",font=("Comic Sans MS",30,'bold'))
+horizontal.config(command=on_slider_move,background="black",fg="white",font=("Sans Serif",30,'bold'))
 horizontal.pack(side=BOTTOM, pady=(30, 10), padx=40)
 
 horizontal.get()
 
-footer = Label(window, text="Made by Gage and Claude :)", background="black", fg="white", font=("Arial", 10))
+footer = Label(window, text="Made by Gage and Claude :)", background="black", fg="white", font=("Sans Serif", 10))
 footer.place(relx=0.5, rely=1.0, anchor=S)
 
 window.after(200, process_queue)
