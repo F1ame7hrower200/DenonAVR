@@ -89,7 +89,7 @@ def update_buttons(power_state):
         poweroff.config(font=("Sans Serif", 50, 'bold'))
         poweron.config(font=("Sans Serif",30, 'bold'))
 
-desired_inputs = ["FATBOY590", "RTX3070", 'Turntable', 'Spotify']
+desired_inputs = ["FATBOY590", "RTX3070", 'Turntable', 'Spotify', 'Bluetooth']
 
 def update_input_menu(input_list):
     menu = input_menu["menu"]
