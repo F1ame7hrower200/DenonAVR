@@ -35,7 +35,6 @@ def power_off_click():
     run_async(avr.async_power_off())
 
 def setup_page():
-    run_async(send_menu_command("MNMEN ON"))
     subprocess.run(["python", 'setup_menu.py'], check=True)
 
 def on_slider_move(value):
@@ -159,7 +158,7 @@ def on_input_selected(*args):
 
 selected_input.trace_add("write", on_input_selected)
 
-setup = Button(window, text='Setup')
+setup = Button(window, text='Control Page')
 setup.config(command=setup_page, bg='black', fg='white', font=('Sans Serif', 12, 'bold'))
 setup.pack(pady=10)
 
