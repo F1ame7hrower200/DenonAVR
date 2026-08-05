@@ -4,7 +4,7 @@ import asyncio
 import queue
 from tkinter import *
 
-avr = denonavr.DenonAVR('192.168.0.112')
+avr = denonavr.DenonAVR('192.168.0.116')
 
 loop = asyncio.new_event_loop()
 threading.Thread(target=loop.run_forever, daemon=True).start()
@@ -23,7 +23,7 @@ gui_queue = queue.Queue()
 run_async(avr.async_setup())
 
 async def send_menu_command(command: str):
-    reader, writer = await asyncio.open_connection('192.168.0.112', 23)
+    reader, writer = await asyncio.open_connection('192.168.0.116', 23)
     writer.write(f"{command}\r".encode())
     await writer.drain()
     writer.close()

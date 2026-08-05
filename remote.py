@@ -6,7 +6,7 @@ import asyncio
 import httpx
 import subprocess
 
-avr = denonavr.DenonAVR('192.168.0.112')
+avr = denonavr.DenonAVR('192.168.0.116')
 
 loop = asyncio.new_event_loop()
 threading.Thread(target=loop.run_forever, daemon=True).start()
@@ -58,12 +58,12 @@ def eco():
 
 async def send_subwoofer_level(db: float):
     command = db_to_swl_raw(db)
-    url = f"http://192.168.0.112/goform/formiPhoneAppDirect.xml?{command}"
+    url = f"http://192.168.0.116/goform/formiPhoneAppDirect.xml?{command}"
     async with httpx.AsyncClient() as client:
         await client.get(url)
 
 async def send_menu_command(command: str):
-    reader, writer = await asyncio.open_connection('192.168.0.112', 23)
+    reader, writer = await asyncio.open_connection('192.168.0.116', 23)
     writer.write(f"{command}\r".encode())
     await writer.drain()
     writer.close()
